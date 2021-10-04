@@ -3,7 +3,11 @@ class ContactsController < ApplicationController
   end
   def create
     @c = Contact.new contact_params
-    @c.save
+    if @c.valid?
+      @c.save
+    else
+      render action: 'new'
+    end
   end
 
   private
