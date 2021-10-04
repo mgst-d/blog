@@ -1,6 +1,19 @@
 <h1> Your contacts </h1>
-<form action='/contacts/create' method='POST'>
+<!-- <form action='/contacts' method='POST'>
 	<input type='text' name='contact[email]' /> <br />
 	<input type='text' name='contact[message]' /> <br/>
 	<input type='submit' />
-</form>
+</form> -->
+<%= form_for :contact, url: contacts_path do |f| %>
+	<p>
+		<%= f.label :emais %> <br />
+		<%= f.text_field :email %>
+	</p>
+	<p>
+		<%= f.label :message %> <br />
+		<%= f.text_area :message %>
+	</p>
+	<p>
+		<%= f.submit 'Send message'%>
+	</p>
+<% end %>
