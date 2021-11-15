@@ -1,15 +1,52 @@
-<h1>List of articles.</h1>
+<div class='container'>
+	<div class="row">
+		<div class='col-xs-1'>
+		</div>
+		<div class='col-xs-6'>
+			<h2>List of articles.</h2>
+		</div>
+		<div class='col-xs-5'>
+		</div>
+	</div>
+	<% @articles.each do |article| %>
 
-<% @articles.each do |article| %>
+	<div class="row">
+		<div class='col-xs-1'>
+		</div>
+		<div class='col-xs-6'>
+			<h3><%= article.title %></h3>
+		</div>
+		<div class='col-xs-5'>
+		</div>
+	</div>
 
-<h3><%= article.title %></h3>
 
-<h3><%= article.text %></h3>
-<p>
-	<%= link_to 'Show', article_path(article) %>
-	<%= link_to 'Edit', edit_article_path(article) %>
-	<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Подтвердите удаление.'} %>
-</p>
+	<div class="row">
+		
+		<div class='col-xs-6'>
+			<h3><%= article.text %></h3>
+		</div>
+		
+	</div>
+		
 
-<hr />
-<% end %>
+	<div class="row">
+		<div class='col-xs-1'>
+		</div>
+		<div class='col-xs-6'>
+			<%= link_to 'Show', article_path(article) %>
+			<%= link_to 'Edit', edit_article_path(article) %>
+			<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Подтвердите удаление.'} %>
+		</div>
+		<div class='col-xs-5'>
+		</div>
+	</div>
+	<hr />
+
+	<% end %>
+
+</div>
+
+
+
+
