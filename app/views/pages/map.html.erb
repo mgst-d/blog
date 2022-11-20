@@ -1,0 +1,26 @@
+<div id='map' style='width: 800px; height: 600px;'></div>
+# <script>
+#   mapboxgl.accessToken = 'pk.eyJ1IjoibWdzdCIsImEiOiJjbDMxN3I5ZGEwOXFxM3BtcGQwaDBhM2g0In0.wMCct6B3eVzr4sz7O9NUjQ';
+#   var map = new mapboxgl.Map({
+#     container: 'map',
+#     style: 'mapbox://styles/mapbox/streets-v11'
+#   });
+# </script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWdzdCIsImEiOiJjbDMxN3I5ZGEwOXFxM3BtcGQwaDBhM2g0In0.wMCct6B3eVzr4sz7O9NUjQ';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v11',
+  center: [-122.486052, 37.830348],
+  zoom: 14
+});
+map.on('style.load', function() {
+  map.on('click', function(e) {
+    var coordinates = e.lngLat;
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML('you clicked here: <br/>' + coordinates)
+      .addTo(map);
+  });
+});
+</script>
